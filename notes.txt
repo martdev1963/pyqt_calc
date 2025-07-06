@@ -1,5 +1,7 @@
 Simple Calculator App in PyQt
 
+https://chat.deepseek.com/a/chat/s/97d613c1-7b19-42b1-925c-f02e994a830a
+
 Here's a complete implementation of a simple calculator using PyQt5:
 
 Martin@DESKTOP-HTLQ9GM /cygdrive/c/Users/Martin/Documents/Coding/pyqt_calc
@@ -297,7 +299,30 @@ This calculator can be extended with features like memory functions, keyboard in
 or scientific operations. Let me know if you'd like to enhance it! 🚀
 
 
+NOTE:
 
+Porting the PyQt5 Calculator App to Vercel
 
+PyQt5 applications are desktop GUI applications and can't run directly on Vercel (which is designed for web applications). 
+However, you have a few options to make this calculator available online:
+Option 1: Convert to a Web Framework (Recommended)
 
+The best approach is to rewrite your calculator using a web framework like Flask or Django, then deploy to Vercel.
+
+Note: PyQt5 is too large for practical use in Pyodide. A simpler calculator without PyQt would work better.
+Option 3: Use Remi (Python Web GUI Library)
+
+Best Recommendation
+
+For Vercel deployment, Option 1 (Flask) is the most practical solution. While it requires rewriting the interface, it will:
+
+    Work reliably on Vercel
+
+    Be accessible from any device
+
+    Have better performance than trying to run PyQt in a browser
+
+Would you like me to elaborate on any of these approaches?
+
+https://chat.deepseek.com/a/chat/s/97d613c1-7b19-42b1-925c-f02e994a830a
 
