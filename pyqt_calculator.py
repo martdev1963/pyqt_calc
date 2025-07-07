@@ -1,6 +1,10 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLineEdit, QPushButton, QWidget, QGridLayout
+import math
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QLineEdit, 
+                            QPushButton, QWidget, QGridLayout, QHBoxLayout, 
+                            QTabWidget, QDockWidget, QListWidget, QMenuBar, QAction)
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIcon, QKeyEvent
 
 class CalculatorApp(QMainWindow):
     def __init__(self):
