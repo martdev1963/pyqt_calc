@@ -1328,9 +1328,98 @@ When iterating over the enumerate object, it yields tuples where each tuple cont
 This eliminates the need to manually manage a counter variable within a loop, making the code more concise and readable.
 
 
+Packaging Your PyQt5 Calculator as an Installable Application
+
+Here's a complete guide to make your calculator app distributable on Windows, macOS, and Linux.
+
+Option 1: Using PyInstaller (Recommended)
+1. Install PyInstaller
+
+pip install pyinstaller
+
+2. Create a Spec File
+
+pyinstaller --name=ScientificCalculator --windowed --onefile --icon=calculator.ico calculator.py
+
+3. Modify the Spec File
+
+Edit the generated ScientificCalculator.spec:
+
+# -*- mode: python ; coding: utf-8 -*-
+
+block_cipher = None
+
+a = Analysis(
+    ['calculator.py'],
+    pathex=[],
+    binaries=[],
+    datas=[],
+    hiddenimports=[],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=block_cipher,
+    noarchive=False,
+)
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    [],
+    name='ScientificCalculator',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=False,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+    icon=['calculator.ico'],
+)
+
+4. Build the Executable
+
+pyinstaller ScientificCalculator.spec
+
+5. Distribute the App
+
+    Windows: The dist/ folder contains ScientificCalculator.exe
+
+    macOS: The dist/ folder contains ScientificCalculator.app
+
+    Linux: The dist/ folder contains a binary executable
 
 
+OTHER OPTIONS:
+Option 2: Using cx_Freeze (Alternative)
+Option 3: Creating Platform-Specific Installers
 
+
+Option 3 specifics:
+Distribution Platforms
+
+    Windows: .exe installer or portable zip
+
+    macOS: .dmg or .pkg
+
+    Linux: .deb, .rpm, or AppImage
+
+This complete packaging solution ensures your calculator can be installed on 
+any platform with proper metadata and signing for professional distribution.
+
+https://chat.deepseek.com/a/chat/s/97d613c1-7b19-42b1-925c-f02e994a830a
 
 
 
